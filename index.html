@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JB Royal Studio | Barber Shop Nitra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg: #161616;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --text-color: #ffffff;
+            --text-muted: #aaaaaa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* HEADER / NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(13, 13, 13, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            z-index: 1000;
+        }
+
+        .logo-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            padding: 0 20px;
+        }
+
+        .hero-logo {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--gold);
+            color: var(--bg-color);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* SECTIONS GENERAL */
+        section {
+            padding: 100px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--gold);
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+        }
+
+        /* ABOUT SECTION */
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .about-content span {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* SERVICES / PRICING */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 30px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .service-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+
+        .select-btn {
+            font-size: 0.85rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            padding-top: 10px;
+        }
+
+        /* BARBERS SELECTION SECTION */
+        .barbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .barber-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 30px;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .barber-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .barber-photo {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .barber-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .barber-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* CONTACT SECTION */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 50px;
+        }
+
+        .contact-info h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #050505;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            nav a {
+                margin-left: 15px;
+                font-size: 0.9rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HLAVIČKA -->
+    <header>
+        <div class="logo-text">JB ROYAL STUDIO</div>
+        <nav>
+            <a href="#o-nas">O nás</a>
+            <a href="#sluzby">Služby</a>
+            <a href="#barberi">Barberi</a>
+            <a href="#kontakt">Termíny & Kontakt</a>
+        </nav>
+    </header>
+
+    <!-- HERO SEKCIA S LOGOM -->
+    <section class="hero">
+        <img src="logo.png" alt="JB Royal Studio Logo" class="hero-logo">
+        <h1>JB ROYAL STUDIO</h1>
+        <p>Kráľovská starostlivosť o tvoj vzhľad v Nitre</p>
+        <a href="#sluzby" class="btn">Vybrať službu</a>
+    </section>
+
+    <!-- O NÁS -->
+    <section id="o-nas">
+        <h2 class="section-title">O nás</h2>
+        <div class="about-content">
+            <p>Vitaj v JB Royal Studio – mieste, kde sa tradícia stretáva s moderným štýlom. O tvoj nový vzhľad sa postarajú špičkoví barberi <span>Jamal Bobek</span> a <span>Lorenzzo Biarezz</span>. Ponúkame ti špičkové strihy, precíznu úpravu brady a kráľovský servis, vďaka ktorému sa budeš vždy cítiť sebavedomo a sviežo.</p>
+        </div>
+    </section>
+
+    <!-- SLUŽBY A CENY -->
+    <section id="sluzby">
+        <h2 class="section-title">Naša ponuka služieb</h2>
+        <div class="services-grid">
+            <a href="#barberi" class="service-card">
+                <div>
+                    <h3>Strih vlasov</h3>
+                    <p>Moderný alebo klasický strih podľa tvojho želania.</p>
+                    <div class="price">15 €</div>
+                </div>
+                <div class="select-btn">Vybrať barbera &rarr;</div>
+            </a>
+            
+            <a href="#barberi" class="service-card">
+                <div>
+                    <h3>Úprava brady</h3>
+                    <p>Zastrihnutie, kontúrovanie brizvou a starostlivosť.</p>
+                    <div class="price">12 €</div>
+                </div>
+                <div class="select-btn">Vybrať barbera &rarr;</div>
+            </a>
+
+            <a href="#barberi" class="service-card">
+                <div>
+                    <h3>Holenie hlavy</h3>
+                    <p>Hladké holenie hlavy brizvou s teplým uterákom.</p>
+                    <div class="price">12 €</div>
+                </div>
+                <div class="select-btn">Vybrať barbera &rarr;</div>
+            </a>
+
+            <a href="#barberi" class="service-card">
+                <div>
+                    <h3>Kráľovský strih</h3>
+                    <p>Kompletný strih vlasov + úprava brady + prémiová starostlivosť.</p>
+                    <div class="price">25 €</div>
+                </div>
+                <div class="select-btn">Vybrať barbera &rarr;</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- VÝBER BARBERA -->
+    <section id="barberi">
+        <h2 class="section-title">Vyber si svojho barbera</h2>
+        <div class="barbers-grid">
+            <a href="#kontakt" class="barber-card">
+                <img src="jamal.jpg" alt="Jamal Bobek" class="barber-photo">
+                <h3>Jamal Bobek</h3>
+                <p>Hlavný zakladateľ štúdia, precízny strih a štýlová úprava brady.</p>
+                <div class="select-btn">Zvoliť Jamala &rarr;</div>
+            </a>
+
+            <a href="#kontakt" class="barber-card">
+                <img src="lorenzzo.jpg" alt="Lorenzzo Biarezz" class="barber-photo">
+                <h3>Lorenzzo Biarezz</h3>
+                <p>Skúsený barber pre moderné účesy a hladké holenie brizvou.</p>
+                <div class="select-btn">Zvoliť Lorenzza &rarr;</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- KONTAKT, TERMÍNY A OTVÁRACIE HODINY -->
+    <section id="kontakt">
+        <h2 class="section-title">Voľné termíny & Kontakt</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Objednávky a info</h3>
+                <p><strong>Mesto:</strong> Nitra, Slovensko</p>
+                <p><strong>Telefon / WhatsApp:</strong> <a href="tel:+421905218623">+421 905 218 623</a></p>
+                <p><strong>E-mail:</strong> <a href="mailto:jamalbobek@icloud.com">jamalbobek@icloud.com</a></p>
+                <p><strong>Instagram:</strong> @jbroyalstudio</p>
+            </div>
+            <div class="contact-info">
+                <h3>Otváracie hodiny</h3>
+                <p><strong>Pondelok – Piatok:</strong> 09:00 – 18:00</p>
+                <p><strong>Sobota:</strong> 09:00 – 16:00</p>
+                <p><strong>Nedeľa:</strong> Zatvorené</p>
+                <p style="margin-top: 15px; color: var(--gold); font-size: 0.95rem;"><em>* Pre rezerváciu termínu ma neváhaj kontaktovať telefonicky alebo správou.</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PÄTIČKA -->
+    <footer>
+        <p>&copy; 2026 JB Royal Studio Nitra. Všetky práva vyhradené.</p>
+    </footer>
+
+</body>
+</html>
